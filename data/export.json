@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "card_number": "SC001",
+        "holder_name": "Alex Magson",
+        "card_type": "train",
+        "balance": 50.0,
+        "status": "active",
+        "issue_date": "2024-01-01",
+        "expiry_date": "2026-12-31"
+    }
+]
