@@ -18,7 +18,7 @@ def main():
             add_card(
                 input("Card number: "),
                 input("Holder name: "),
-                input("Card type (e.g. train/bus): "),
+                input("Card type (e.g. train/bus/ferry/metro/multi/tram): "),
                 float(input("Balance: ")),
                 input("Issue date (YYYY-MM-DD): "),
                 input("Expiry date (YYYY-MM-DD): ")
