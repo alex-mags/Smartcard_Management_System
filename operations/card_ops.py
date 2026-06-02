@@ -1,7 +1,7 @@
 import sqlite3
 import json
 from db.database import get_connection
-
+#Defines add card subroutine
 def add_card(card_number, holder_name, card_type, balance, issue_date, expiry_date):
     conn = get_connection()
     cursor = conn.cursor()
