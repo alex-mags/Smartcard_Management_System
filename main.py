@@ -55,7 +55,7 @@ def main():
             remove_card(input("Card number to remove: "))
 
         elif choice == "4":
-            print("Example: SELECT * FROM cards WHERE status = 'active'")
+            print("Example: SELECT * FROM cards WHERE holder_name like 'robin%'")
             query = input("Enter SQL query: ")
             rows = search_cards(query)
             if rows:
