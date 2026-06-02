@@ -1,28 +1,43 @@
 from db.database import initialise_db
 from operations.card_ops import add_card, amend_card, remove_card, search_cards, export_to_json
 
+def get_valid_card_number(prompt="Card number: "):
+    """Prompt the user for a card number and validate it is exactly 16 numeric digits."""
+    while True:
+        card_input = input(prompt).strip().replace(" ", "").replace("-", "")
+        if len(card_input) == 16 and card_input.isdigit():
+            return card_input
+        print("Error: Invalid format. Card number must be exactly 16 digits.")
+
 def main():
     initialise_db()
     while True:
-        print("\n--- Smartcard Management System ---")
-        print("1. Add card")
-        print("2. Amend card")
-        print("3. Remove card")
-        print("4. Search cards (SQL)")
+        print("\n--- Smartcard Customer Management System ---")
+        print("1. Add Smartcard")
+        print("2. Amend Smartcard")
+        print("3. Remove Smartcard")
+        print("4. Search Smartcard database")
         print("5. Export to JSON")
         print("6. Exit")
 
         choice = input("Choose an option: ")
 
         if choice == "1":
-            add_card(
-                input("Card number: "),
-                input("Holder name: "),
-                input("Card type (e.g. train/bus/ferry/metro/multi/tram): "),
-                float(input("Balance: ")),
-                input("Issue date (YYYY-MM-DD): "),
-                input("Expiry date (YYYY-MM-DD): ")
-            )
+            card_number = get_valid_card_number("Enter Smartcard number (must be exactly 16 numbers): ")
+            holder_name = input("Holder name: ")
+            card_type = input("Card type (e.g. train/bus/ferry/metro/multi/tram): ")
+            
+            while True:
+                try:
+                    balance = float(input("Balance: "))
+                    break
+                except ValueError:
+                    print("Error: Balance must be a valid number.")
+
+            issue_date = input("Smartcard Issue date (DD-MM-YYYY): ")
+            expiry_date = input("Smartcard Expiry date (DD-MM-YYYY): ")
+
+            add_card(card_number, holder_name, card_type, balance, issue_date, expiry_date)
 
         elif choice == "2":
             card_number = input("Card number to amend: ")
