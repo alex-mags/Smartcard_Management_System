@@ -6,12 +6,12 @@ from operations.card_ops import add_card, amend_card, remove_card, search_cards,
 #define sub routines
 
 def get_valid_card_number(prompt="Card number: "):
-    """Prompt the user for a card number and validate it is exactly 16 numeric digits."""
+    """Prompt the user for a card number and validate it is precisely 16 numerical digits."""
     while True:
         card_input = input(prompt).strip().replace(" ", "").replace("-", "")
         if len(card_input) == 16 and card_input.isdigit():
             return card_input
-        print("Error: Invalid format. Card number must be exactly 16 digits.")
+        print("Error: Invalid format. Card number must be precisely 16 numerical digits.")
 
 def main():
     initialise_db()
