@@ -1,7 +1,9 @@
---To create the databases and initialise them
+#create the databases and initialise them
 
 from db.database import initialise_db
 from operations.card_ops import add_card, amend_card, remove_card, search_cards, export_to_json
+
+#define sub routines
 
 def get_valid_card_number(prompt="Card number: "):
     """Prompt the user for a card number and validate it is exactly 16 numeric digits."""
@@ -24,6 +26,8 @@ def main():
 
         choice = input("Choose an option: ")
 
+#user input data
+        
         if choice == "1":
             card_number = get_valid_card_number("Enter Smartcard number (must be exactly 16 numbers): ")
             holder_name = input("Holder name: ")
@@ -66,7 +70,7 @@ def main():
         elif choice == "6":
             print("Goodbye!")
             break
-
+#error if anything other than 1-6 is input
         else:
             print("Invalid option, try again.")
 
