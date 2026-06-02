@@ -1,3 +1,5 @@
+--To create the databases and initialise them
+
 from db.database import initialise_db
 from operations.card_ops import add_card, amend_card, remove_card, search_cards, export_to_json
 
